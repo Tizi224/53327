@@ -1,0 +1,5 @@
+pila PruebaFalloUno {
+  crear([10, 20])!
+  empujar(30)
+  sacar()!
+}

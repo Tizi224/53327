@@ -1,0 +1,3 @@
+pila PruebaFalloDos {
+  crear(1, 2, 3)!
+}

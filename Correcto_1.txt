@@ -1,0 +1,6 @@
+pila PrimeraPrueba {
+  crear([5, 15, 25])!
+  empujar(35)!
+  mirar()!
+  sacar()!
+}

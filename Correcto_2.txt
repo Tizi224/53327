@@ -1,0 +1,7 @@
+pila SegundaPrueba {
+  crear([])!
+  empujar(100)!
+  empujar(200)!
+  sacar()!
+  mirar()!
+}
