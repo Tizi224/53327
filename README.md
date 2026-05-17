@@ -22,7 +22,7 @@ El analizador recibe como argumento la ruta de un archivo de texto con el codigo
 
    node index.js correcto_1.txt
 
-Puede reemplazar "correcto_1.txt" por cualquiera de los otros archivos de prueba incluidos en el repositorio:
+Se puede reemplazar "correcto_1.txt" por cualquiera de los otros archivos de prueba incluidos en el repositorio:
 - correcto_2.txt
 - incorrecto_1.txt
 - incorrecto_2.txt
