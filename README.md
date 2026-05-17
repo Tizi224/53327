@@ -11,7 +11,7 @@ Para ejecutar este proyecto es necesario tener instalado Node.js en el sistema
 ## Instalacion
 
 1. Clonar este repositorio
-2. Abrir una terminal en el directorio principal del proyecto
+2. Abrir una terminal en la carpeta del analizador ya que es donde se encuentra el archivo index.js
 3. Ejecutar el siguiente comando para instalar las dependencias:
 
    npm install
