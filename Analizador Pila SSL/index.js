@@ -29,7 +29,7 @@ function main() {
     tokenStream.fill(); // Necesario para iterar tokens antes del parser
 
     // 2. Tabla de lexemas-tokens
-    console.log("--- Tabla de lexemas-tokens ---");
+    console.log("Tabla de lexemas-tokens");
     for (let token of tokenStream.tokens) {
         if (token.type !== antlr4.Token.EOF) {
             const tokenName = CalculatorLexer.symbolicNames[token.type] || CalculatorLexer.literalNames[token.type] || "UNKNOWN";
@@ -44,24 +44,24 @@ function main() {
     const tree = parser.programa();
 
     if (parser.syntaxErrorsCount > 0) {
-        console.error("\nSe encontraron errores en la entrada. Ejecución detenida.");
+        console.error("\nSe encontraron errores en la entrada");
         return;
     }
 
-    console.log("\nEntrada válida.");
+    console.log("\nEntrada válida");
 
     // 3. Árbol de análisis sintáctico
-    console.log("\n--- Árbol de análisis sintáctico ---");
+    console.log("\nÁrbol de análisis sintáctico:");
     console.log(tree.toStringTree(parser.ruleNames));
 
     // 4. Interpretación (Traducción y ejecución)
     const visitor = new CustomCalculatorVisitor();
     const codigoJS = visitor.visit(tree);
 
-    console.log("\n-- Código JS --");
+    console.log("\nCódigo JS:");
     console.log(codigoJS);
 
-    console.log("--- Resultados ---");
+    console.log("Resultados:");
     eval(codigoJS);
 }
 
