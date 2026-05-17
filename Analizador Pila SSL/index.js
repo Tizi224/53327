@@ -6,8 +6,14 @@ import fs from 'fs';
 
 // 1. Análisis léxico y sintáctico con manejo de errores
 class CustomErrorListener extends antlr4.error.ErrorListener {
+    constructor() {
+        super();
+        this.errors = 0;
+    }
+
     syntaxError(recognizer, offendingSymbol, line, column, msg, e) {
         console.error(`Error en la línea ${line}:${column} - Causa: ${msg}`);
+        this.errors++;
     }
 }
 
@@ -22,8 +28,9 @@ function main() {
 
     const inputStream = CharStreams.fromString(input);
     const lexer = new CalculatorLexer(inputStream);
+    const errorListener = new CustomErrorListener();
     lexer.removeErrorListeners();
-    lexer.addErrorListener(new CustomErrorListener());
+    lexer.addErrorListener(errorListener);
 
     const tokenStream = new CommonTokenStream(lexer);
     tokenStream.fill(); // Necesario para iterar tokens antes del parser
@@ -39,16 +46,16 @@ function main() {
 
     const parser = new CalculatorParser(tokenStream);
     parser.removeErrorListeners();
-    parser.addErrorListener(new CustomErrorListener());
+    parser.addErrorListener(errorListener);
 
     const tree = parser.programa();
 
-    if (parser.syntaxErrorsCount > 0) {
+    if (errorListener.errors > 0) {
         console.error("\nSe encontraron errores en la entrada");
         return;
+    } else {
+        console.log("\nEntrada válida");
     }
-
-    console.log("\nEntrada válida");
 
     // 3. Árbol de análisis sintáctico
     console.log("\nÁrbol de análisis sintáctico:");

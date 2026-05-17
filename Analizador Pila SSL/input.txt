@@ -1,7 +1,6 @@
-pila prueba {
-    crear([10,20,30])!
-    empujar(40)!
-    mirar()!
-    sacar()!
-    mirar()!
+pila PrimeraPrueba {
+  crear([5, 15, 25])!
+  empujar(35)!
+  mirar()!
+  sacar()!
 }
